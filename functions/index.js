@@ -26,28 +26,36 @@ app.post("/payments/create", async (req, res) => {
   const total = req.query.total;
 
   console.log("Payment request received BOOM!!! for amount >>> ", total);
-
-  const paymentIntent = await stripe.paymentIntents.create({
-    description: "Cool Gadjets Show",
-    shipping: {
-      name: "He's Name is John Cena",
-      address: {
-        line1: "510 Townsend St",
-        postal_code: "98140",
-        city: "San Francisco",
-        state: "CA",
-        country: "US",
+  try {
+      const paymentIntent = await stripe.paymentIntents.create({
+      description: "Cool Gadjets Show",
+      shipping: {
+        name: "He's Name is John Cena",
+        address: {
+          line1: "510 Townsend St",
+          postal_code: "98140",
+          city: "San Francisco",
+          state: "CA",
+          country: "US",
+        },
       },
-    },
-    amount: total,
-    currency: "inr",
-    payment_method_types: ["card"],
-  });
+      amount: total,
+      currency: "inr",
+      payment_method_types: ["card"],
+    });
+    res.status(201).send({
+      clientSecret: paymentIntent.client_secret,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({
+      msg:"payment instet not created"
+    })
+  }
+  
 
   // OK - created
-  res.status(201).send({
-    clientSecret: paymentIntent.client_secret,
-  });
+  
 });
 
 // Listen command
