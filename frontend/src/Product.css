@@ -1,0 +1,56 @@
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 10px;
+  padding: 20px;
+  width: 100%;
+  max-height: 400px;
+  min-width: 100px;
+  background-color: white;
+  z-index: 1;
+}
+
+.product__info {
+  height: 100px;
+  margin-bottom: 15px;
+}
+
+.product__price {
+  margin-top: 5px;
+}
+
+.product__rating {
+  display: flex;
+}
+
+.product > img {
+  max-height: 200px;
+  width: 100%;
+  /* To maintain aspect ratio, so wont cover 100% width anyway */
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.product > button {
+  background-color: #f0c14b;
+  border: 1px solid;
+  margin-top: 10px;
+  /* Gradient border colors values */
+  border-color: #a88734 #9c7e31 #846a29;
+  color: black;
+}
+
+/* The .glow selector targets an element with the class name "glow."
+The transition property is applied, specifying that any change to the box-shadow property should have a smooth transition over a duration of 0.3 seconds with an ease-in-out timing function. */
+.glow {
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/* The .glow:hover selector targets the same element when it is being hovered over.
+The box-shadow property is applied during the hover state, creating a shadow effect.
+The shadow is specified as 0 0 10px 5px blueviolet, meaning it has no horizontal or vertical offset (0 0), a blur radius of 10px, and a spread radius of 5px. The color of the shadow is set to blueviolet. */
+.glow:hover {
+  box-shadow: 0 0 10px 5px blueviolet;
+}
