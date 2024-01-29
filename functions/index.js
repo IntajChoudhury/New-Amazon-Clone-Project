@@ -60,7 +60,7 @@ app.post("/payments/create", async (req, res) => {
 // exports.api = functions.https.onRequest(app);
 // Using local backend port to test
 app.listen(5001, () => {
-  console.log("Server is listening at http://localhost:001");
+  console.log("Server is listening at http://localhost:5001");
 });
 
 // EXPLANATION OF EVERYTHING ABOVE-
