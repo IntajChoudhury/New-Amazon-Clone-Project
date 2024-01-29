@@ -27,7 +27,7 @@ app.post("/payments/create", async (req, res) => {
 
   console.log("Payment request received BOOM!!! for amount >>> ", total);
   try {
-      const paymentIntent = await stripe.paymentIntents.create({
+    const paymentIntent = await stripe.paymentIntents.create({
       description: "Cool Gadjets Show",
       shipping: {
         name: "He's Name is John Cena",
@@ -49,20 +49,18 @@ app.post("/payments/create", async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(400).json({
-      msg:"payment instet not created"
-    })
+      msg: "payment instet not created",
+    });
   }
-  
 
   // OK - created
-  
 });
 
 // Listen command
 // exports.api = functions.https.onRequest(app);
 // Using local backend port to test
 app.listen(5001, () => {
-  console.log("Server is listening at http://localhost:5001");
+  console.log("Server is listening at http://localhost:001");
 });
 
 // EXPLANATION OF EVERYTHING ABOVE-
